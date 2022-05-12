@@ -1,0 +1,27 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "MD Akmami",
+    "description": "",
+    "home_page_url": "https://akhmami.github.io",
+    "feed_url": "https://akhmami.github.io/feed.json",
+    "user_comment": "",
+    "author": {
+        "name": "Akhmami"
+    },
+    "items": [
+        {
+            "id": "https://akhmami.github.io/about-me.html",
+            "url": "https://akhmami.github.io/about-me.html",
+            "title": "About me",
+            "summary": "deskripsi disini",
+            "content_html": "\n  <p>\n    deskripsi disini\n  </p>",
+            "author": {
+                "name": "Akhmami"
+            },
+            "tags": [
+            ],
+            "date_published": "2022-05-12T22:27:06+07:00",
+            "date_modified": "2022-05-12T22:27:06+07:00"
+        }
+    ]
+}

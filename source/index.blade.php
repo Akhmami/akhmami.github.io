@@ -9,11 +9,11 @@
         </div>
         <div class="flex flex-col items-start py-10 sm:py-16 lg:py-20 px-6 lg:px-8">
             <div class="hidden sm:mb-5 sm:flex sm:justify-start">
-                <a href="//linkedin.com/in/akhmami"
+                <a href="//wa.me/6285156154439"
                     class="flex items-center rounded-full p-1 pr-2 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     <span class="rounded-full bg-indigo-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Hire
                         me</span>
-                    <span class="ml-4 text-sm">Lihat linkedin saya</span>
+                    <span class="ml-4 text-sm">Kirim saya pesan</span>
                     <svg class="ml-2 h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fill-rule="evenodd"
                             d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"

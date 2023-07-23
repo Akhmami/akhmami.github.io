@@ -1,7 +1,7 @@
 <section class="overflow-hidden bg-white py-24 sm:py-32" id="projects">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div
-            class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+            class="mb-8 mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div class="lg:pr-8 lg:pt-4">
                 <div class="lg:max-w-lg">
                     <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Projects</h2>
@@ -59,27 +59,81 @@
                 width="2432" height="1442">
         </div>
 
-        <div class="mx-auto grid max-w-2xl lg:mx-0 lg:max-w-none py-16">
+        <div class="mx-auto grid max-w-2xl lg:mx-0 lg:max-w-none py-8">
             <div class="-m-1 flex flex-wrap md:-m-2">
-                <div class="flex w-full flex-wrap">
-                    <div class="w-2/3 p-2 md:p-6 bg-gray-200 rounded-xl">
-                        <video class="block h-full w-full rounded-lg object-cover object-center" autoplay loop muted
+                <div class="flex w-full space-x-3">
+                    <div class="w-2/3 p-2 md:p-6 bg-gray-200 rounded-xl flex items-center">
+                        <video class="block h-auto w-full rounded-lg object-cover object-center" autoplay loop muted
                             playsinline>
                             <source src="./assets/images/projects/asset_video.mov" type="video/mp4">
                         </video>
                     </div>
-                    <div class="flex w-1/3 flex-wrap">
-                        <div class="w-full p-1 md:p-2">
+                    <div class="flex w-1/3 flex-wrap space-y-3">
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
                             <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
                                 src="./assets/images/projects/asset2.png" />
                         </div>
-                        <div class="w-full p-1 md:p-2">
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
                             <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
                                 src="./assets/images/projects/asset3.png" />
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="mx-auto grid max-w-2xl lg:mx-0 lg:max-w-none py-8">
+            <div class="-m-1 flex flex-wrap md:-m-2">
+                <div class="flex w-full space-x-3">
+                    <div class="w-2/3 p-2 md:p-6 bg-gray-200 rounded-xl flex items-center">
+                        <video class="block h-auto w-full rounded-lg object-cover object-center" autoplay loop muted
+                            playsinline>
+                            <source src="./assets/images/projects/survey_video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex w-1/3 flex-wrap space-y-3">
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
+                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                                src="./assets/images/projects/survey1.png" />
+                        </div>
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
+                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                                src="./assets/images/projects/survey2.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto grid max-w-2xl lg:mx-0 lg:max-w-none py-8">
+            <div class="-m-1 flex flex-wrap md:-m-2">
+                <div class="flex w-full space-x-3">
+                    <div class="w-2/3 p-2 md:p-6 bg-gray-200 rounded-xl flex items-center">
+                        <video class="block h-auto w-full rounded-lg object-cover object-center" autoplay loop muted
+                            playsinline>
+                            <source src="./assets/images/projects/school_video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="flex w-1/3 flex-wrap space-y-3">
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
+                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                                src="./assets/images/projects/school1.png" />
+                        </div>
+                        <div class="w-full p-2 md:p-6 bg-gray-200 rounded-xl">
+                            <img alt="gallery" class="block h-full w-full rounded-lg object-cover object-center"
+                                src="./assets/images/projects/school2.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-2xl lg:mx-0 lg:max-w-none py-8 flex justify-center">
+            <a href="//linkedin.com/in/akhmami"
+                class="flex items-center rounded-md bg-blue-500 px-8 py-4 text-lg font-medium uppercase leading-normal text-white shadow transition duration-150 ease-in-out hover:bg-blue-600 hover:shadow-md focus:bg-blue-600 focus:shadow-md focus:outline-none focus:ring-0">
+                <x-icon.linkedin class="h-10 w-10 text-white mr-1" />
+                Lihat linkedin saya
+            </a>
         </div>
     </div>
 </section>

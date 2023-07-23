@@ -24,17 +24,17 @@
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button> --}}
-            <button type="button"
+            <a href="mailto:akhmami@gmail.com"
                 class="rounded-md bg-white px-2 py-1.5 border focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                 <span class="">akhmami@gmail.com</span>
-            </button>
+            </a>
         </div>
         <div class="hidden lg:flex">
             <div class="hidden sm:ml-6 sm:flex sm:items-center">
-                <button type="button"
+                <a href="mailto:akhmami@gmail.com"
                     class="rounded-md bg-white px-2 py-1.5 border focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                     <span class="">akhmami@gmail.com</span>
-                </button>
+                </a>
                 {{-- <button type="button"
                     class="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                     <span class="sr-only">Facebook</span>

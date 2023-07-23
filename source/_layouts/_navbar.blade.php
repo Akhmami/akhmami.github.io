@@ -3,13 +3,14 @@
         <div class="flex items-center gap-x-12">
             <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Your Company</span>
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                    alt="">
+                {{-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                    alt=""> --}}
+                MDA
             </a>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Tentang saya</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Keahlian</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
+                <a href="#about-me" class="text-sm font-semibold leading-6 text-gray-900">Tentang saya</a>
+                <a href="#skills" class="text-sm font-semibold leading-6 text-gray-900">Keahlian</a>
+                <a href="#projects" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
                 {{-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a> --}}
             </div>
         </div>

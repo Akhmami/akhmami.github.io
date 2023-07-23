@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-col items-start py-10 sm:py-16 lg:py-20 px-6 lg:px-8">
             <div class="hidden sm:mb-5 sm:flex sm:justify-start">
-                <a href="#"
+                <a href="//linkedin.com/in/akhmami"
                     class="flex items-center rounded-full p-1 pr-2 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
                     <span class="rounded-full bg-indigo-500 px-3 py-0.5 text-sm font-semibold leading-5 text-white">Hire
                         me</span>

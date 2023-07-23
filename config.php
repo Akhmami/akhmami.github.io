@@ -3,7 +3,7 @@
 return [
     'production' => false,
     'baseUrl' => '',
-    'title' => 'Jigsaw',
-    'description' => 'Website description.',
+    'title' => 'Muhammad Dawil Akmami',
+    'description' => 'Portfolio website for Muhammad Dawil Akmami.',
     'collections' => [],
 ];

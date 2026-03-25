@@ -2,18 +2,15 @@
 <html lang="{{ $page->language ?? 'en' }}">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="canonical" href="{{ $page->getUrl() }}">
-    <meta name="description" content="{{ $page->description }}">
-    <title>{{ $page->title }}</title>
-    <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-    <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
+    @include('_layouts._head')
 </head>
 
-<body class="text-gray-900 font-sans antialiased">
-    @include('_layouts._navbar')
+<body class="min-h-screen bg-background font-sans transition-colors duration-300">
+    <x-section.navbar />
+
     @yield('body')
+
+    <x-section.footer />
 </body>
 
 </html>

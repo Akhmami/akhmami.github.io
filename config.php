@@ -3,7 +3,13 @@
 return [
     'production' => false,
     'baseUrl' => '',
-    'title' => 'Muhammad Dawil Akmami',
+    'title' => 'MDA - Full Stack Web Developer',
     'description' => 'Portfolio website for Muhammad Dawil Akmami.',
-    'collections' => [],
+
+    'collections' => [
+        'projects' => [
+            'path' => 'projects/{filename}',
+            'sort' => '-date',
+        ],
+    ],
 ];

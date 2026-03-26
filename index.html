@@ -10,8 +10,36 @@
 <title>MDA - Full Stack Web Developer</title>
 
 
-<link rel="stylesheet" href="/assets/build/assets/main-D7VQh4mz.css">
-<script defer type="module" src="/assets/build/assets/main-Cx8k6S9W.js"></script>
+<link rel="stylesheet" href="/assets/build/assets/main-BNK9yMmD.css">
+<script defer type="module" src="/assets/build/assets/main-2qu-qhe3.js"></script>
+
+<script>
+    // Load dark mode before page renders to prevent flicker
+        const loadDarkMode = () => {
+            const theme = localStorage.getItem('theme') ?? 'system'
+            
+            if (
+                theme === 'dark' ||
+                (theme === 'system' &&
+                    window.matchMedia('(prefers-color-scheme: dark)')
+                    .matches)
+            ) {
+                document.documentElement.classList.add('dark')
+            }
+        }
+                
+        // Initialize on page load
+        loadDarkMode();
+        
+        // Reinitialize after Livewire navigation (for spa mode)
+        document.addEventListener('livewire:navigated', function() {
+            loadDarkMode();
+        });
+</script>
+
+<script defer>
+    loadDarkMode()
+</script>
 
 
 </head>
@@ -36,14 +64,47 @@
                 Contact
             </a>
         </div>
-        <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
-            aria-label="Toggle theme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" class="lucide lucide-moon w-5 h-5 text-neutral-600" aria-hidden="true">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-            </svg>
-        </button>
+        <div 
+    class='flex items-center'>
+    <label class="sr-only">
+        Theme
+    </label>
+
+    <div x-data>        
+        <div class="flex items-center transition-all duration-200 size-10 overflow-hidden">
+            <button 
+                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                x-show="$theme.isResolvedToLight" 
+                x-on:click="$theme.toggle()" 
+                style="display: none;"
+                role="button"
+                aria-pressed="true" 
+                x-bind:aria-pressed="$theme.isResolvedToLight"
+                aria-label="Activate light theme">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-5 text-neutral-600">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+            </button>
+            <button 
+                class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors"
+                x-show="$theme.isResolvedToDark"
+                x-on:click="$theme.toggle()" 
+                style="display: none;"
+                role="button"
+                aria-pressed="true" 
+                x-bind:aria-pressed="$theme.isResolvedToDark"
+                aria-label="Activate dark theme">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                    class="size-5 text-neutral-400">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
     </div>
 </nav>
 
@@ -53,8 +114,8 @@
             
             <div class="hidden sm:mb-5 sm:flex sm:justify-start">
                 <a href="mailto:akhmami@gmail.com"
-                    class="flex items-center rounded-full p-1 pr-2 text-neutral-600 ring-1 ring-neutral-900/10 hover:ring-neutral-900/20">
-                    <span class="rounded-full bg-neutral-800 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
+                    class="flex items-center rounded-full p-1 pr-2 text-neutral-600 dark:text-neutral-400 ring-1 ring-neutral-900/10 dark:ring-neutral-300/15 hover:ring-neutral-900/20">
+                    <span class="rounded-full bg-neutral-800 dark:bg-neutral-50 px-3 py-0.5 text-sm font-semibold leading-5 text-white dark:text-neutral-900">
                         Open to work
                     </span>
                     <span class="ml-4 text-sm">Send me a message</span>

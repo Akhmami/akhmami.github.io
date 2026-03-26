@@ -1,5 +1,6 @@
-import Alpine from 'alpinejs'
+import Alpine from 'alpinejs';
+import './theme.js';
 
-window.Alpine = Alpine
+window.Alpine = Alpine;
 
-Alpine.start()
+Alpine.start();

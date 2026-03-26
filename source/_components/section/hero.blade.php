@@ -14,8 +14,8 @@
             </div> --}}
             <div class="hidden sm:mb-5 sm:flex sm:justify-start">
                 <a href="mailto:akhmami@gmail.com"
-                    class="flex items-center rounded-full p-1 pr-2 text-neutral-600 ring-1 ring-neutral-900/10 hover:ring-neutral-900/20">
-                    <span class="rounded-full bg-neutral-800 px-3 py-0.5 text-sm font-semibold leading-5 text-white">
+                    class="flex items-center rounded-full p-1 pr-2 text-neutral-600 dark:text-neutral-400 ring-1 ring-neutral-900/10 dark:ring-neutral-300/15 hover:ring-neutral-900/20">
+                    <span class="rounded-full bg-neutral-800 dark:bg-neutral-50 px-3 py-0.5 text-sm font-semibold leading-5 text-white dark:text-neutral-900">
                         Open to work
                     </span>
                     <span class="ml-4 text-sm">Send me a message</span>

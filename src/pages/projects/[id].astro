@@ -1,0 +1,159 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection('projects');
+  const sortedProjects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+  
+  return sortedProjects.map((project, index) => {
+    const next = index > 0 ? sortedProjects[index - 1] : null;
+    const previous = index < sortedProjects.length - 1 ? sortedProjects[index + 1] : null;
+    
+    return {
+      params: { id: project.id },
+      props: { project, next, previous },
+    };
+  });
+}
+
+const { project, next, previous } = Astro.props;
+const { Content } = await render(project);
+
+const formattedDate = project.data.date.toLocaleDateString('en-US', {
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Layout title={`${project.data.title} - MDA`} description={project.data.description}>
+  <section class="py-24 md:py-32 px-6">
+      <div class="max-w-6xl mx-auto">
+          <!-- Back Button -->
+          <div class="mb-10">
+              <a href="/projects" class="inline-flex items-center text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform">
+                      <path d="m12 19-7-7 7-7"></path>
+                      <path d="M19 12H5"></path>
+                  </svg>
+                  Back to Projects
+              </a>
+          </div>
+
+          <!-- Split Hero Section -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+              <!-- Left Column: Title & Intro -->
+              <div class="lg:col-span-5 flex flex-col justify-center">
+                  <div class="flex items-center gap-3 mb-6">
+                      <span class="px-3.5 py-1 text-xs font-semibold uppercase tracking-wider bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 rounded-full border border-neutral-200/50 dark:border-neutral-700/50">
+                          {project.data.category}
+                      </span>
+                      <time class="text-xs font-medium text-neutral-400">{formattedDate}</time>
+                  </div>
+                  
+                  <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 dark:text-white tracking-tight mb-6 leading-[1.1]">
+                      {project.data.title}
+                  </h1>
+                  
+                  <p class="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                      {project.data.description}
+                  </p>
+              </div>
+
+              <!-- Right Column: Premium Mockup Media -->
+              <div class="lg:col-span-7">
+                  <div class="relative rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800/60 shadow-2xl group">
+                      {project.data.is_video ? (
+                          <video class="w-full h-auto object-cover aspect-video" preload="auto" muted loop autoplay playsinline>
+                              <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
+                          </video>
+                      ) : (
+                          <img src={project.data.cover_image} alt={project.data.title} class="w-full h-auto object-cover aspect-video" />
+                      )}
+                  </div>
+              </div>
+          </div>
+
+          <!-- Case Study Columns -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+              <!-- Left Side: Case Study Content -->
+              <div class="lg:col-span-8">
+                  <article class="prose prose-neutral dark:prose-invert max-w-none 
+                      prose-headings:font-bold prose-headings:tracking-tight
+                      prose-headings:text-neutral-900 dark:prose-headings:text-white
+                      prose-p:text-neutral-600 dark:prose-p:text-neutral-400 prose-p:leading-relaxed prose-p:text-base md:prose-p:text-lg
+                      prose-li:text-neutral-600 dark:prose-li:text-neutral-400
+                      prose-strong:text-neutral-900 dark:prose-strong:text-white
+                      prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                      prose-ul:my-4 prose-li:my-1">
+                      <Content />
+                  </article>
+              </div>
+
+              <!-- Right Side: Sticky Meta Sidebar -->
+              <div class="lg:col-span-4">
+                  <div class="sticky top-24 space-y-6">
+                      <!-- Project Info Card -->
+                      <div class="p-6 md:p-8 rounded-3xl bg-gray-50 dark:bg-neutral-900/40 border border-gray-100 dark:border-neutral-800 shadow-md">
+                          <h3 class="text-sm font-bold text-neutral-900 dark:text-white uppercase tracking-widest mb-6">Project details</h3>
+                          
+                          <dl class="space-y-4 text-sm">
+                              <div class="flex justify-between py-2 border-b border-gray-100 dark:border-neutral-800/60">
+                                  <dt class="text-neutral-500">Category</dt>
+                                  <dd class="font-medium text-neutral-900 dark:text-white">{project.data.category}</dd>
+                              </div>
+                              <div class="flex justify-between py-2 border-b border-gray-100 dark:border-neutral-800/60">
+                                  <dt class="text-neutral-500">Date</dt>
+                                  <dd class="font-medium text-neutral-900 dark:text-white">{formattedDate}</dd>
+                              </div>
+                              <div class="flex justify-between py-2">
+                                  <dt class="text-neutral-500">Client</dt>
+                                  <dd class="font-medium text-neutral-900 dark:text-white">Internal Product</dd>
+                              </div>
+                          </dl>
+
+                          {project.data.link && (
+                              <div class="mt-8">
+                                  <a href={project.data.link} target="_blank" rel="noopener noreferrer" 
+                                     class="inline-flex w-full items-center justify-center gap-2 px-6 py-3.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-2xl font-semibold hover:opacity-95 transition-opacity shadow-lg shadow-neutral-900/10 dark:shadow-none">
+                                      View Website
+                                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link w-4 h-4">
+                                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                          <polyline points="15 3 21 3 21 9"></polyline>
+                                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                                      </svg>
+                                  </a>
+                              </div>
+                          )}
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Bottom Navigation -->
+          <div class="mt-32 pt-12 border-t border-gray-100 dark:border-neutral-800 flex justify-between items-center">
+              {next ? (
+                  <a href={`/projects/${next.id}`} class="group flex flex-col items-start max-w-[45%]">
+                      <span class="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1.5">Next Project</span>
+                      <span class="text-lg md:text-xl font-bold text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors line-clamp-1">
+                          {next.data.title} &rarr;
+                      </span>
+                  </a>
+              ) : (
+                  <div></div>
+              )}
+
+              {previous ? (
+                  <a href={`/projects/${previous.id}`} class="group flex flex-col items-end max-w-[45%]">
+                      <span class="text-xs text-neutral-400 font-semibold uppercase tracking-wider mb-1.5">Previous Project</span>
+                      <span class="text-lg md:text-xl font-bold text-neutral-900 dark:text-white group-hover:text-neutral-600 dark:group-hover:text-neutral-300 transition-colors line-clamp-1 text-right">
+                          &larr; {previous.data.title}
+                      </span>
+                  </a>
+              ) : (
+                  <div></div>
+              )}
+          </div>
+      </div>
+  </section>
+</Layout>

@@ -1,0 +1,136 @@
+---
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const featuredProjects = sortedProjects.filter(p => p.data.featured).slice(0, 6);
+---
+<section id="work" class="py-24 md:py-32 px-6">
+    <div class="max-w-6xl mx-auto" x-data="{ activeProject: 0 }">
+        
+        <!-- Header -->
+        <div class="mb-16 flex items-end justify-between">
+            <div>
+                <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-3 tracking-wide uppercase font-semibold">Selected Work</p>
+                <h2 class="text-3xl md:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight">Featured Projects</h2>
+            </div>
+            <a href="/projects" class="hidden md:flex items-center text-sm font-semibold text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors group">
+                View all projects
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                </svg>
+            </a>
+        </div>
+        
+        <!-- Interactive Split Screen Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            <!-- Left Column: Interactive Project List -->
+            <div class="lg:col-span-6 space-y-2">
+                {featuredProjects.map((project, index) => {
+                    const num = String(index + 1).padStart(2, '0');
+                    
+                    return (
+                        <div 
+                            class="border-b border-gray-100 dark:border-neutral-800/80 last:border-0 py-6 md:py-8 first:pt-0"
+                            x-on:mouseenter={`activeProject = ${index}`}
+                        >
+                            <a href={`/projects/${project.id}`} class="group block relative">
+                                
+                                <!-- Mobile Inline Image (Only visible on screens < lg) -->
+                                <div class="lg:hidden block mb-6 relative aspect-video rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800 shadow-md">
+                                    {project.data.is_video ? (
+                                        <video class="w-full h-full object-cover" preload="none" muted loop autoplay playsinline>
+                                            <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
+                                        </video>
+                                    ) : (
+                                        <img src={project.data.cover_image} alt={project.data.title} class="w-full h-full object-cover" />
+                                    )}
+                                    <div class="absolute inset-0 bg-neutral-950/20"></div>
+                                </div>
+
+                                <!-- Project Info Structure -->
+                                <div class="flex items-start gap-4 md:gap-6">
+                                    <!-- Index Number -->
+                                    <span class="font-mono text-sm md:text-base font-semibold text-neutral-400 dark:text-neutral-600 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300 pt-1">
+                                        {num}
+                                    </span>
+
+                                    <div class="flex-1 min-w-0">
+                                        <!-- Category & Date -->
+                                        <div class="flex items-center gap-2 mb-2">
+                                            <span class="text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
+                                                {project.data.category}
+                                            </span>
+                                            <span class="w-1 h-1 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>
+                                            <span class="text-xs text-neutral-400">
+                                                {project.data.date.getFullYear()}
+                                            </span>
+                                        </div>
+
+                                        <!-- Title -->
+                                        <h3 class="text-xl md:text-2xl font-bold text-neutral-900 dark:text-white tracking-tight group-hover:translate-x-2 transition-transform duration-300 ease-out flex items-center gap-3">
+                                            {project.data.title}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right w-4 h-4 text-neutral-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300">
+                                                <path d="M5 12h14"></path>
+                                                <path d="m12 5 7 7-7 7"></path>
+                                            </svg>
+                                        </h3>
+
+                                        <!-- Description -->
+                                        <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-2 line-clamp-2 max-w-lg leading-relaxed">
+                                            {project.data.description}
+                                        </p>
+
+                                        <!-- Tech Stack Badges -->
+                                        {project.data.tags && project.data.tags.length > 0 && (
+                                            <div class="flex flex-wrap gap-1.5 mt-4">
+                                                {project.data.tags.slice(0, 3).map((tag) => (
+                                                    <span class="text-[10px] font-semibold font-mono tracking-wide text-neutral-400 dark:text-neutral-500 bg-neutral-50 dark:bg-neutral-800/30 px-2 py-0.5 rounded border border-neutral-200/30 dark:border-neutral-700/30">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    );
+                })}
+            </div>
+
+            <!-- Right Column: Sticky Large Mockup Preview (Only visible on screens >= lg) -->
+            <div class="hidden lg:block lg:col-span-6 sticky top-28">
+                <div class="relative w-full aspect-video rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800/60 shadow-2xl">
+                    {featuredProjects.map((project, index) => (
+                        <div 
+                            x-show={`activeProject === ${index}`}
+                            x-transition:enter="transition-all duration-500 ease-out"
+                            x-transition:enter-start="opacity-0 scale-95 translate-y-4"
+                            x-transition:enter-end="opacity-100 scale-100 translate-y-0"
+                            x-transition:leave="transition-all duration-300 ease-in"
+                            x-transition:leave-start="opacity-100 scale-100 translate-y-0"
+                            x-transition:leave-end="opacity-0 scale-95 -translate-y-4"
+                            class="absolute inset-0 w-full h-full"
+                            style="display: none;"
+                        >
+                            {project.data.is_video ? (
+                                <video class="w-full h-full object-cover" preload="none" muted loop autoplay playsinline>
+                                    <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
+                                </video>
+                            ) : (
+                                <img src={project.data.cover_image} alt={project.data.title} class="w-full h-full object-cover" />
+                              )}
+                              <!-- Premium overlay shading -->
+                              <div class="absolute inset-0 bg-linear-to-t from-neutral-950/40 via-neutral-950/0 to-transparent"></div>
+                          </div>
+                      ))}
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </section>
+</Layout>

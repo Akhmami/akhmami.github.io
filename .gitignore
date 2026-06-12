@@ -1,12 +1,15 @@
-/build_local/
-/cache/
-/node_modules/
-/vendor/
-/.idea/
-/.vscode/
-npm-debug.log
+# Astro build and cache
+/dist/
+/.astro/
 
-# Optional ignores
-/source/assets/build
-# /build_staging/
-# /build_production/
+# Dependency directories
+/node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

@@ -36,16 +36,16 @@ const sortedProjects = allProjects.sort((a, b) => b.data.date.getTime() - a.data
                           >
                               <a href={`/projects/${project.id}`} class="group block relative">
                                   
-                                  <!-- Mobile Inline Image (Only visible on screens < lg) -->
-                                  <div class="lg:hidden block mb-6 relative aspect-video rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800 shadow-md">
+                                  <!-- Mobile Inline Preview (Only visible on screens < lg) -->
+                                  <div class="lg:hidden block mb-6 relative rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800 shadow-md">
                                       {project.data.is_video ? (
-                                          <video class="w-full h-full object-cover" preload="none" muted loop autoplay playsinline>
+                                          <video class="w-full aspect-video object-cover" preload="none" muted loop autoplay playsinline>
                                               <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
                                           </video>
                                       ) : (
-                                          <img src={project.data.cover_image} alt={project.data.title} class="w-full h-full object-cover" />
+                                          <img src={project.data.cover_image} alt={project.data.title} class="w-full h-auto" />
                                       )}
-                                      <div class="absolute inset-0 bg-neutral-950/20"></div>
+                                      <div class="absolute inset-0 bg-neutral-950/20 pointer-events-none"></div>
                                   </div>
 
                                   <!-- Layout of details -->
@@ -90,28 +90,25 @@ const sortedProjects = allProjects.sort((a, b) => b.data.date.getTime() - a.data
 
               <!-- Right Side: Sticky Large Mockup Preview (Only visible on screens >= lg) -->
               <div class="hidden lg:block lg:col-span-6 sticky top-28">
-                  <div class="relative w-full aspect-video rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800/60 shadow-2xl">
+                  <div class="relative w-full rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800/60 shadow-2xl transition-all duration-300">
                       {sortedProjects.map((project, index) => (
                           <div 
                               x-show={`activeProject === ${index}`}
                               x-transition:enter="transition-all duration-500 ease-out"
-                              x-transition:enter-start="opacity-0 scale-95 translate-y-4"
-                              x-transition:enter-end="opacity-100 scale-100 translate-y-0"
-                              x-transition:leave="transition-all duration-300 ease-in"
-                              x-transition:leave-start="opacity-100 scale-100 translate-y-0"
-                              x-transition:leave-end="opacity-0 scale-95 -translate-y-4"
-                              class="absolute inset-0 w-full h-full"
+                              x-transition:enter-start="opacity-0 scale-98"
+                              x-transition:enter-end="opacity-100 scale-100"
+                              class="w-full"
                               style="display: none;"
                           >
                               {project.data.is_video ? (
-                                  <video class="w-full h-full object-cover" preload="none" muted loop autoplay playsinline>
+                                  <video class="w-full aspect-video object-cover" preload="none" muted loop autoplay playsinline>
                                       <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
                                   </video>
                               ) : (
-                                  <img src={project.data.cover_image} alt={project.data.title} class="w-full h-full object-cover" />
+                                  <img src={project.data.cover_image} alt={project.data.title} class="w-full h-auto" />
                               )}
                               <!-- Premium overlay shading -->
-                              <div class="absolute inset-0 bg-linear-to-t from-neutral-950/40 via-neutral-950/0 to-transparent"></div>
+                              <div class="absolute inset-0 bg-linear-to-t from-neutral-950/20 via-neutral-950/0 to-transparent pointer-events-none"></div>
                           </div>
                       ))}
                   </div>

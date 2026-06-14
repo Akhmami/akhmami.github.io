@@ -64,11 +64,11 @@ const formattedDate = project.data.date.toLocaleDateString('en-US', {
               <div class="lg:col-span-7">
                   <div class="relative rounded-3xl overflow-hidden bg-gray-50 dark:bg-neutral-800/30 border border-gray-100 dark:border-neutral-800/60 shadow-2xl group">
                       {project.data.is_video ? (
-                          <video class="w-full h-auto object-cover aspect-video" preload="auto" muted loop autoplay playsinline>
+                          <video class="w-full aspect-video object-cover" preload="auto" muted loop autoplay playsinline>
                               <source src={project.data.cover_image} type={`video/${project.data.cover_image.endsWith('.webm') ? 'webm' : 'mp4'}`} />
                           </video>
                       ) : (
-                          <img src={project.data.cover_image} alt={project.data.title} class="w-full h-auto object-cover aspect-video" />
+                          <img src={project.data.cover_image} alt={project.data.title} class="w-full h-auto" />
                       )}
                   </div>
               </div>

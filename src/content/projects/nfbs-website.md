@@ -5,13 +5,14 @@ date: 2018-01-05
 category: "Website"
 cover_image: "/assets/projects/webnf/image.webp"
 featured: true
-tags: ["WordPress", "Custom Theme", "Tailwind CSS"]
+tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"]
 ---
 
 ### Project Overview
 The official digital presence for NFBS Serang, providing information to parents, students, and prospective families.
 
 ### Tech Stack
-- WordPress
-- Custom Theme
+- Laravel
+- Livewire
+- Alpine.js
 - Tailwind CSS

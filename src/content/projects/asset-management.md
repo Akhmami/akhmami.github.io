@@ -5,7 +5,7 @@ date: 2022-07-15
 category: "Web App"
 cover_image: "/assets/projects/asset/image.png"
 featured: true
-tags: ["Laravel", "Livewire", "Tailwind CSS", "MySQL"]
+tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"]
 ---
 
 ### Project Overview
@@ -15,4 +15,6 @@ Efficient asset management platform designed to streamline resource tracking and
 - Laravel
 - Livewire
 - Tailwind CSS
-- MySQL
+- Alpine.js
+- MySQL/MariaDB
+- Laravel Excel

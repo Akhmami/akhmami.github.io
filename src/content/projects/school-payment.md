@@ -5,7 +5,7 @@ date: 2017-03-20
 category: "Web App"
 cover_image: "/assets/projects/spp/image.png"
 featured: true
-tags: ["Laravel", "Alpine.js", "Tailwind CSS", "MySQL"]
+tags: ["Laravel", "BNI API", "Tailwind CSS", "Alpine.js"]
 ---
 
 ### Project Overview
@@ -13,6 +13,7 @@ School payment platform built for NFBS Serang to facilitate easy and secure fee 
 
 ### Tech Stack
 - Laravel
+- Livewire
 - Alpine.js
 - Tailwind CSS
-- MySQL
+- BNI API

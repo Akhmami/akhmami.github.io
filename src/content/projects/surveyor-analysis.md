@@ -6,14 +6,15 @@ category: "Web App"
 cover_image: "/assets/projects/surveyor/video.mp4"
 is_video: true
 featured: true
-tags: ["Node.js", "React", "D3.js", "MongoDB"]
+tags: ["Laravel", "Bootstrap", "Chart.js", "Laravel Excel"]
 ---
 
 ### Project Overview
 An analytics platform that visualizes survey data to provide actionable insights into visitor satisfaction.
 
 ### Tech Stack
-- Node.js
-- React
-- D3.js
-- MongoDB
+- Laravel
+- Bootstrap
+- Laravel Excel
+- MySQL/MariaDB
+- Chart.js

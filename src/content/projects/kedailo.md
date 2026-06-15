@@ -6,6 +6,7 @@ category: "SaaS"
 cover_image: "/assets/projects/kedailo/marketing.webp"
 featured: true
 tags: ["Laravel", "Livewire", "Geolocation", "Redis"]
+link: "https://kedailo.com"
 ---
 
 ### Project Overview

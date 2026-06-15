@@ -12,6 +12,7 @@ const projects = defineCollection({
     featured: z.boolean().optional().default(false),
     is_video: z.boolean().optional().default(false),
     link: z.string().optional(),
+    reference_link: z.string().optional(),
     tags: z.array(z.string()).optional().default([]),
   }),
 });

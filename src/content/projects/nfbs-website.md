@@ -6,6 +6,7 @@ category: "Website"
 cover_image: "/assets/projects/webnf/image.webp"
 featured: true
 tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"]
+link: "https://nfbs.or.id"
 ---
 
 ### Project Overview

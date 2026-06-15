@@ -6,6 +6,7 @@ category: "Web App"
 cover_image: "/assets/projects/spp/image.png"
 featured: true
 tags: ["Laravel", "BNI API", "Tailwind CSS", "Alpine.js"]
+link: "https://psb.nfbs.or.id"
 ---
 
 ### Project Overview

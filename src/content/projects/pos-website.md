@@ -6,6 +6,7 @@ category: "Website"
 cover_image: "/assets/projects/pos/marketing.webp"
 featured: true
 tags: ["Astro", "Tailwind CSS", "Alpine.js"]
+link: "https://xorum.id/point-of-sales"
 ---
 
 ### Project Overview

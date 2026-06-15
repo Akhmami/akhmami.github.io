@@ -4,7 +4,6 @@ description: "Efficient asset management platform for tracking and maintaining c
 date: 2022-07-15
 category: "Web App"
 cover_image: "/assets/projects/asset/image.png"
-featured: true
 tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"]
 ---
 

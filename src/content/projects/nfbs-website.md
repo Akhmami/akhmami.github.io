@@ -4,7 +4,6 @@ description: "Official website for NFBS Serang boarding school."
 date: 2018-01-05
 category: "Website"
 cover_image: "/assets/projects/webnf/image.webp"
-featured: true
 tags: ["Laravel", "Livewire", "Tailwind CSS", "Alpine.js"]
 link: "https://nfbs.or.id"
 ---

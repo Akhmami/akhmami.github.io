@@ -5,7 +5,6 @@ date: 2023-10-10
 category: "Web App"
 cover_image: "/assets/projects/surveyor/video.mp4"
 is_video: true
-featured: true
 tags: ["Laravel", "Bootstrap", "Chart.js", "Laravel Excel"]
 ---
 

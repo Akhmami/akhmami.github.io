@@ -1,5 +1,5 @@
 ---
-title: "School Payment Platform At NFBS Serang"
+title: "School Payment System At NFBS Serang"
 description: "Integrated payment system for NFBS Serang to manage student fees and financial records."
 date: 2017-03-20
 category: "Web App"
